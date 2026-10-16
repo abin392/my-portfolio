@@ -151,41 +151,10 @@
         </div>
 
         <div class="grid-container">
+
             <!-- Skill 1 -->
             <div class="card reveal-up">
-                <div class="icon"><i class="fa-brands fa-js"></i></div>
-                <h3>JavaScript / ES6+</h3>
-                <p style="margin-bottom: 0;">Building interactive, dynamic, and modern web functionalities.</p>
-                <div class="skill-progress">
-                    <div class="progress-header">
-                        <span>Proficiency</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="progress-track">
-                        <div class="progress-fill" style="width: 90%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skill 2 -->
-            <div class="card reveal-up">
-                <div class="icon"><i class="fa-brands fa-react"></i></div>
-                <h3>React & Next.js</h3>
-                <p style="margin-bottom: 0;">Developing scalable, high-performance frontend architectures.</p>
-                <div class="skill-progress">
-                    <div class="progress-header">
-                        <span>Proficiency</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="progress-track">
-                        <div class="progress-fill" style="width: 85%;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Skill 3 -->
-            <div class="card reveal-up">
-                <div class="icon"><i class="fa-brands fa-html5"></i></div>
+                <div class="icon"><i class="fa-brands fa-html5" style="color: #e34c26;"></i></div>
                 <h3>HTML5 & CSS3</h3>
                 <p style="margin-bottom: 0;">Crafting responsive, accessible, and pixel-perfect layouts.</p>
                 <div class="skill-progress">
@@ -199,9 +168,43 @@
                 </div>
             </div>
 
+
+            <!-- Skill 2 -->
+            <div class="card reveal-up">
+                <div class="icon"><i class="fa-brands fa-js" style="color: yellow;"></i></div>
+                <h3>JavaScript / ES6+</h3>
+                <p style="margin-bottom: 0;">Building interactive, dynamic, and modern web functionalities.</p>
+                <div class="skill-progress">
+                    <div class="progress-header">
+                        <span>Proficiency</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="card reveal-up">
+                <div class="icon"><i class="fa-brands fa-react" style="color: #61dafb;"></i></div>
+                <h3>React & Next.js</h3>
+                <p style="margin-bottom: 0;">Developing scalable, high-performance frontend architectures.</p>
+                <div class="skill-progress">
+                    <div class="progress-header">
+                        <span>Proficiency</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+
+
             <!-- Skill 4 -->
             <div class="card reveal-up">
-                <div class="icon"><i class="fa-solid fa-database"></i></div>
+                <div class="icon"><i class="fa-solid fa-database" style="color: #4479a1;"></i></div>
                 <h3>Backend & API</h3>
                 <p style="margin-bottom: 0;">Connecting frontend interfaces to robust data solutions.</p>
                 <div class="skill-progress">
@@ -233,7 +236,7 @@
 
             <!-- Skill 6: AI Coding Agents -->
             <div class="card reveal-up">
-                <div class="icon"><i class="fa-solid fa-robot"></i></div>
+                <div class="icon"><i class="fa-solid fa-robot" style="color:cornsilk"></i></div>
                 <h3>AI Coding Agents</h3>
                 <p style="margin-bottom: 0;">Leveraging AI agents and LLMs to accelerate code generation, debugging, and architecture.</p>
                 <div class="skill-progress">
@@ -771,6 +774,36 @@
             }
             
         });
+
+ 
+        // 4. ESC KEY CLOSING LOGIC FOR LIGHTBOX //
+        const getKeyboardEvent = (event) => {
+            if (event.key === "Escape") {
+                const lightbox = document.getElementById("image-lightbox");
+                if (lightbox && lightbox.classList.contains("show")) {
+                    lightbox.classList.remove("show");
+                    document.body.style.overflow = "auto"; // Unlock scrolling
+                }
+            }
+        };
+
+        document.addEventListener("keydown", getKeyboardEvent);
+
+
+        //5. next/prev keyboard navigation for lightbox
+        document.addEventListener("keydown", (event) => {
+            const lightbox = document.getElementById("image-lightbox");
+            if (lightbox && lightbox.classList.contains("show")) {
+                if (event.key === "ArrowRight") {
+                    // Trigger next button click
+                    document.getElementById("lightbox-next").click();
+                } else if (event.key === "ArrowLeft") {
+                    // Trigger previous button click
+                    document.getElementById("lightbox-prev").click();
+                }
+            }
+        });
+
     </script>
 
 </body>
